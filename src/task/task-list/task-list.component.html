@@ -1,0 +1,28 @@
+<div class="task-list">
+
+    <div class="info">
+        <img (click)="showEmployee()" src="../../assets/ic-back.png" />
+        <button mat-button (click)=" addTask()" class="add-button">+Add Task</button>
+    </div>
+    <table class="content-table">
+        <thead>
+            <th>Task Id</th>
+            <th>Task Name</th>
+            <th>Assigned At</th>
+            <th>Status</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let task of tasks">
+                <td>{{task.id}}</td>
+                <td>{{task.taskName}}</td>
+                <td>{{task.time}}</td>
+                <td>{{task.status}}</td>
+            </tr>
+            <tr *ngIf="!tasks || tasks.length === 0">
+                <td colspan="5" class="no-data-message">
+                    No Tasks !
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

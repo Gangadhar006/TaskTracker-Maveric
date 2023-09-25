@@ -1,0 +1,97 @@
+thead,
+.content-table thead tr {
+    background-color: #1C2833;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+}
+
+.add-button {
+    width: max-content;
+    height: max-content;
+    padding: 0.7em 3em;
+    font-weight: bold;
+    border: 3px solid #1C2833;
+    border-radius: 5px;
+    letter-spacing: 0.3px;
+    align-self: flex-end;
+    transition: background-color 0.3s, border-radius 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+.add-button:hover {
+    background-color: #1C2833;
+    border-radius: 25px;
+    color: #F8F9F9;
+}
+
+.content-table {
+    border-collapse: collapse;
+    margin: 25px;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    margin-bottom: 70px;
+    box-shadow: 0.5px 0.5px 5px #1C2833;
+}
+
+.content-table th,
+.content-table td {
+    padding: 12px 15px;
+}
+
+.content-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+    border-bottom: 2px solid #1C2833;
+}
+
+.content-table tbody tr.active-row {
+    font-weight: bold;
+    color: #1C2833;
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15vh;
+}
+
+.info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #F8F9F9;
+    position: fixed;
+    top: 8vh;
+    width: 100%;
+    z-index: 1000;
+}
+
+.info button {
+    align-self: center;
+    margin: 10px;
+}
+
+.info img {
+    width: 45px;
+    transition: transform 0.3s, ease 0.3s;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.info img:hover {
+    transform: scale(1.1);
+}
+
+.no-data-message {
+    text-align: center;
+}

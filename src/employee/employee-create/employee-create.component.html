@@ -1,0 +1,72 @@
+<form [formGroup]="employeeForm" (ngSubmit)="submit()" class="employee-form">
+    <h1>Add New Employee</h1>
+
+    <div class="name-info">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Name" formControlName="name" />
+        <div *ngIf="employeeForm.get('name')?.hasError('required')" class="error-message">
+            Name is required.
+        </div>
+        <div *ngIf="employeeForm.get('name')?.hasError('minlength')" class="error-message">
+            Name must be at least 3 characters long.
+        </div>
+        <div *ngIf="employeeForm.get('name')?.hasError('maxlength')" class="error-message">
+            Name cannot exceed 50 characters.
+        </div>
+        <div *ngIf="employeeForm.get('name')?.hasError('pattern')" class="error-message">
+            Invalid name format. Only letters and spaces are allowed.
+        </div>
+    </div>
+
+    <br>
+    <div class="contact-info">
+        <div class="email-info">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Email" formControlName="email" />
+            <div *ngIf="employeeForm.get('email')?.hasError('required')" class="error-message">
+                Email is required.
+            </div>
+            <div *ngIf="employeeForm.get('email')?.hasError('pattern')" class="error-message">
+                Enter Valid Email
+            </div>
+        </div>
+        <div class="phone-info">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" placeholder="Phone" formControlName="phone" />
+            <div *ngIf="employeeForm.get('phone')?.hasError('required')" class="error-message">
+                Phone is required.
+            </div>
+            <div *ngIf="employeeForm.get('phone')?.hasError('pattern')" class="error-message">
+                Enter valid phone.
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="job-info">
+        <div class="hire-info">
+            <label for="hire-date">Date Hired</label>
+            <input type="date" id="hire-date" formControlName="hireDate" />
+            <div *ngIf="employeeForm.get('hireDate')?.hasError('required')" class="error-message">
+                Hire Date is required.
+            </div>
+        </div>
+        <div class="dept-info">
+            <label for="department">Department</label>
+            <select name="department" id="department" formControlName="department">
+                <option value="IT">IT</option>
+                <option value="HR">HR</option>
+                <option value="QA">QA</option>
+                <option value="SUPPORT">SUPPORT</option>
+            </select>
+            <div *ngIf="employeeForm.get('department')?.hasError('required')" class="error-message">
+                Department is required.
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="button">
+        <button type="submit" [disabled]="employeeForm.invalid">Submit</button>
+        <button type="button" (click)="reset()">Reset</button>
+        <button type="button" (click)="cancel()">Cancel</button>
+    </div>
+</form>
